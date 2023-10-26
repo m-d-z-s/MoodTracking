@@ -8,6 +8,7 @@ module me.mdzs.moodtracking {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires com.google.gson;
 
     opens me.mdzs.moodtracking to javafx.fxml;
     exports me.mdzs.moodtracking;

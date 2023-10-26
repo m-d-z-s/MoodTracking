@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Button fx:id="buttonSend" layoutX="323.0" layoutY="438.0" mnemonicParsing="false" onAction="#SendClick" text="Send" />
+    <TextArea fx:id="description" layoutX="115.0" layoutY="107.0" prefHeight="286.0" prefWidth="470.0" wrapText="true" />
+    <ComboBox fx:id="comboBox" layoutX="275.0" layoutY="45.0" prefWidth="150.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Terrible" />
+                <String fx:value="Bad" />
+                <String fx:value="Neutral" />
+                <String fx:value="Good" />
+                <String fx:value="Excellent" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <Button fx:id="buttonAnalyze" layoutX="488.0" layoutY="438.0" mnemonicParsing="false" text="Analyze" />
+</AnchorPane>
