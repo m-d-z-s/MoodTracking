@@ -17,10 +17,7 @@ public class Tracker {
         this.date = date;
         this.time = time;
     }
-    public Tracker returnPublicTracker() {
-        //return this.getMarkOfMood(), this.getDescription(), this.getDate(), this.getTime();
-        return new Tracker(this.getMarkOfMood(), this.getDescription(), this.getStringDate(), this.getStringTime());
-    }
+
     public int getMarkOfMood() {
         return markOfMood;
     }

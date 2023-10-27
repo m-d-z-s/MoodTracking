@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UtilsTest {
 
-    Tracker tracker = new Tracker(0, "фыва", "2021-09-01", "12:00");
+    Tracker tracker = new Tracker(0, "jjj", "2021-09-01", "12:00");
 
     @Test
     void writeObjectOfTrackerToJsonFile() {

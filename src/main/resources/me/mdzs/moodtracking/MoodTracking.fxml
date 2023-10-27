@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-    <Button fx:id="buttonSend" layoutX="323.0" layoutY="438.0" mnemonicParsing="false" onAction="#SendClick" text="Send" />
-    <TextArea fx:id="description" layoutX="115.0" layoutY="107.0" prefHeight="286.0" prefWidth="470.0" wrapText="true" />
-    <ComboBox fx:id="comboBox" layoutX="275.0" layoutY="45.0" prefWidth="150.0">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Terrible" />
-                <String fx:value="Bad" />
-                <String fx:value="Neutral" />
-                <String fx:value="Good" />
-                <String fx:value="Excellent" />
-            </FXCollections>
-        </items>
-    </ComboBox>
-    <Button fx:id="buttonAnalyze" layoutX="488.0" layoutY="438.0" mnemonicParsing="false" text="Analyze" />
+   <children>
+      <DatePicker layoutX="262.0" layoutY="128.0" />
+      <CheckBox layoutX="313.0" layoutY="169.0" mnemonicParsing="false" text="CheckBox" />
+      <ListView layoutX="242.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" />
+      <ScrollBar layoutX="430.0" layoutY="300.0" orientation="VERTICAL" />
+<!--      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="141.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />-->
+
+
+      <RadioButton fx:id="Mood1" layoutX="242.0" layoutY="77.0" mnemonicParsing="false" text="">
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Mood2" layoutX="292.0" layoutY="77.0" mnemonicParsing="false" text="" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="Mood3" layoutX="342.0" layoutY="77.0" mnemonicParsing="false" text="" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="Mood4" layoutX="392.0" layoutY="77.0" mnemonicParsing="false" text="" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="Mood5" layoutX="442.0" layoutY="77.0" mnemonicParsing="false" text="" toggleGroup="$toggleGroup" />
+   </children>
 </AnchorPane>
