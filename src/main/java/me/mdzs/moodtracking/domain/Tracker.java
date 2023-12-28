@@ -10,6 +10,15 @@ public class Tracker {
     public final String date;//дата
     //public final LocalTime time;//точное время оценки настроения
     public final String time;//точное время оценки настроения
+    @Override
+    public String toString() {
+        return "Tracker{" +
+                "markOfMood=" + markOfMood +
+                ", description='" + description + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
+    }
 
     public Tracker(int markOfMood, String description, String date, String time) {
         this.markOfMood = markOfMood;

@@ -19,6 +19,7 @@ public class MoodTracking extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoodTracking.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), PANE_WIDTH, PANE_HEIGHT);
+        stage.setTitle("Mood Tracking");
         stage.setScene(scene);
         stage.show();
     }
