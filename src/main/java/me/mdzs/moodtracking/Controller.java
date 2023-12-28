@@ -94,10 +94,11 @@ public class Controller implements Initializable {
         if (autoDate.isSelected()) {
             return LocalTime.now().format(java.time.format.DateTimeFormatter.ofPattern("HH:mm"));
         } else {
-            return hours.getValue().toString() + ":" + minutes.getValue().toString();
+            if (minutes.getValue() < 10)
+                return hours.getValue().toString() + ":0" + minutes.getValue().toString();
+            else return hours.getValue().toString() + ":" + minutes.getValue().toString();
         }
     }
-
 
     @FXML
     public void send(ActionEvent event) {
