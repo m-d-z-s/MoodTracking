@@ -1,16 +1,26 @@
 package me.mdzs.moodtracking;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import me.mdzs.moodtracking.domain.Tracker;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -18,6 +28,8 @@ public class Controller implements Initializable {
 
     @FXML
     private final String PathToJson = "src/main/java/me/mdzs/moodtracking/Moods.json";
+    @FXML
+    public TextArea description;
 
     @FXML
     private DatePicker date;
@@ -66,6 +78,10 @@ public class Controller implements Initializable {
         }
     }
 
+    private String GetDescription() {
+        return description.getText();
+    }
+
     private String GetDate() {
         if (autoDate.isSelected()) {
             return LocalDate.now().toString();
@@ -86,11 +102,11 @@ public class Controller implements Initializable {
     @FXML
     public void send(ActionEvent event) {
         int markOfMood = GetMarkOfMood();
-        String description = "init";
+        String description = GetDescription();
         String date = GetDate();
         String time = GetTime();
         Tracker tracker = new Tracker(markOfMood, description, date, time);
-        recordTrackerToJson(tracker);
+        addTrackerToJsonFile(tracker);
 
     }
 
@@ -99,18 +115,37 @@ public class Controller implements Initializable {
         initialize();
     }
 
-    @FXML
-    private void recordTrackerToJson(Tracker tracker) {// 1. Создание json файла, если его нет. 2. Запись в json список tracker
-        //TODO:"Запись в json список tracker";
-//        try {
-//            if (Files.notExists(Paths.get(PathToJson))) {
-//                Files.createFile(Paths.get(PathToJson));
-//            }
-//            TrackerList trackerList = new TrackerList();
-//            trackerList.addTracker(tracker);
-//            trackerList.writeToJson(PathToJson);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
+
+    private void addTrackerToJsonFile(Tracker newTracker) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        File file = new File(PathToJson);
+
+        try {
+            List<Tracker> trackerList;
+
+            if (!file.exists()) {
+                trackerList = new ArrayList<>();
+            } else {
+                FileReader reader = new FileReader(file);
+                Type type = new com.google.gson.reflect.TypeToken<List<Tracker>>() {}.getType();
+                trackerList = gson.fromJson(reader, type);
+                reader.close();
+            }
+
+            trackerList.add(newTracker);
+
+            FileWriter writer = new FileWriter(file);
+
+            String json = gson.toJson(trackerList);
+            writer.write(json);
+
+            writer.close();
+
+            System.out.println("Объект Tracker успешно добавлен в файл");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

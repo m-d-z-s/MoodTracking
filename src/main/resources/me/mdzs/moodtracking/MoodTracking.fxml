@@ -5,16 +5,15 @@
 
 <!--<?import javafx.scene.control.TimePicker?>-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-            prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="me.mdzs.moodtracking.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.mdzs.moodtracking.Controller">
    <children>
       <DatePicker fx:id="date" layoutX="175.0" layoutY="250.0" />
       <CheckBox fx:id="autoDate" layoutX="350.0" layoutY="194.0" mnemonicParsing="false" text="Auto" />
       <Spinner fx:id="hours" layoutX="417.0" layoutY="249.0" prefHeight="26.0" prefWidth="60.0" />
       <Spinner fx:id="minutes" layoutX="522.0" layoutY="249.0" prefHeight="26.0" prefWidth="60.0" />
-      <Button fx:id="send" layoutX="352.0" layoutY="350.0" mnemonicParsing="false" text="Send" onAction="#send" />
+      <Button fx:id="send" layoutX="342.0" layoutY="410.0" mnemonicParsing="false" onAction="#send" text="Send" />
       <ChoiceBox fx:id="moodPicker" layoutX="299.0" layoutY="113.0" prefWidth="150.0" />
+      <TextArea fx:id="description" layoutX="238.0" layoutY="292.0" prefHeight="90.0" prefWidth="251.0" />
 <!--      <TimePicker fx:id="timePicker" value="12:00" />-->
 
    </children>
